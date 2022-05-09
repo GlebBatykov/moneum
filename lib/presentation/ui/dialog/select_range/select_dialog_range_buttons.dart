@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
-import 'package:moneum/presentation/cubit/dialog/select_dialog_range/select_dialog_range_cubit.dart';
-import 'package:moneum/presentation/ui/content_divider.dart';
+import 'package:poseidon/poseidon.dart';
+
+import '../../../cubit/dialog/select_dialog_range/select_dialog_range_cubit.dart';
+import '../../button/custom_text_button.dart';
+import '../../content_divider.dart';
 
 class SelectDialogRangeButtons extends StatelessWidget {
   final SelectDialogRangeCubit cubit;
@@ -21,10 +23,12 @@ class SelectDialogRangeButtons extends StatelessWidget {
               height: 45,
               width: constraints.maxWidth * 0.48,
               alignment: Alignment.center,
-              child: TextButton(
-                  onPressed: () {},
-                  child: const Text('Отмена',
-                      style: TextStyle(color: Colors.white))),
+              child: CustomTextButton(
+                  text: 'Отмена',
+                  onTap: () {
+                    Poseidon.instance.pop();
+                  },
+                  color: Colors.white),
             ),
             const ContentDivider(
               axis: Axis.vertical,
@@ -34,12 +38,11 @@ class SelectDialogRangeButtons extends StatelessWidget {
               height: 45,
               width: constraints.maxWidth * 0.48,
               alignment: Alignment.center,
-              child: TextButton(
-                  onPressed: () {
+              child: CustomTextButton(
+                  text: 'Продолжить',
+                  onTap: () {
                     cubit.select();
-                  },
-                  child: Text('Продолжить',
-                      style: TextStyle(color: HexColor('#0088FF')))),
+                  }),
             )
           ],
         );

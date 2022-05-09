@@ -19,7 +19,7 @@ class SearchBarFilterSumCategoryCubit extends SearchBarFilterCategoryCubit {
 
   double? get begin => _begin;
 
-  double? get end => end;
+  double? get end => _end;
 
   SearchBarFilterSumCategoryCubit(
       String name, double width, double heigth, EdgeInsets margin,

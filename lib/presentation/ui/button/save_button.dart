@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 class SaveButton extends StatelessWidget {
-  const SaveButton({Key? key}) : super(key: key);
+  final void Function()? onTap;
+
+  const SaveButton({Key? key, this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class SaveButton extends StatelessWidget {
           child: Material(
             color: Colors.white,
             child: InkWell(
-              onTap: () {},
+              onTap: onTap,
               child: SizedBox(
                 width: 189 * 1.1,
                 height: 36 * 1.1,

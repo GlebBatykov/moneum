@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../cubit/page/transaction_update/sum_field/transaction_update_sum_field_cubit.dart';
+import '../../../button/custom_text_button.dart';
 import '../../../form/input_form.dart';
 import '../../../type_operation_toggle_button/type_operation_toggle_button.dart';
 import '../../../update_field_title.dart';
@@ -42,13 +43,10 @@ class TransactionUpdateSumField extends StatelessWidget {
                 )),
                 Container(
                   margin: const EdgeInsets.only(left: 5),
-                  child: TextButton(
-                      onPressed: () {},
-                      child: const Text('Калькулятор',
-                          style: TextStyle(
-                              fontFamily: 'Arial',
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold))),
+                  child: CustomTextButton(
+                      text: 'Калькулятор',
+                      onTap: () {},
+                      margin: const EdgeInsets.only(left: 8, right: 8)),
                 )
               ])
             ],

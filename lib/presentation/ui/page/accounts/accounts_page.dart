@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:moneum/presentation/cubit/page/accounts/accounts_page_cubit.dart';
+import 'package:moneum/presentation/ui/button/custom_text_button.dart';
 import 'package:moneum/presentation/ui/page/accounts/dot_slider/accounts_dot_slider.dart';
 import 'package:moneum/presentation/ui/page/accounts/slider_menu/accounts_slider_menu.dart';
 import 'package:poseidon/poseidon.dart';
@@ -48,15 +49,11 @@ class AccountsPage extends StatelessWidget {
                     child: Text('Пока у вас нет счетов.',
                         style: TextStyle(
                             color: HexColor('#B0B0B0'), fontFamily: 'Arial'))),
-                TextButton(
-                    onPressed: () {
+                CustomTextButton(
+                    text: 'Добавить счет',
+                    onTap: () {
                       Poseidon.instance.navigate('add-account');
-                    },
-                    child: Text('Добавить счет',
-                        style: TextStyle(
-                            fontFamily: 'Arial',
-                            color: HexColor('#0088FF'),
-                            fontWeight: FontWeight.bold))),
+                    }),
               ],
             ),
           ))

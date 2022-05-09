@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:moneum/presentation/navigation/update_repeat_pattern_arguments.dart';
+import 'package:moneum/presentation/ui/button/custom_text_button.dart';
 import 'package:moneum/presentation/ui/button/select_button.dart';
 import 'package:poseidon/poseidon.dart';
 
@@ -7,6 +9,7 @@ import '../../../../cubit/page/transaction_update/repeat_field/transaction_updat
 import '../../../button/switch_button.dart';
 import '../../../content_divider.dart';
 import '../../../dialog/select_list/select_dialog_list.dart';
+import '../../../rounded_material_button.dart';
 import '../../../update_field_title.dart';
 
 class TransactionUpdateRepeatField extends StatelessWidget {
@@ -49,18 +52,40 @@ class TransactionUpdateRepeatField extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 const UpdateFieldTitle(
-                                    title: 'Повторения', hint: 'Выберите тип'),
-                                SelectButton(
-                                    height: 33 * 1.2,
-                                    onTap: () {
-                                      Poseidon.instance.callDialog((context) {
-                                        return SelectDialogList(
-                                            cubit: state.selectDialogCubit);
-                                      });
-                                    },
-                                    title: state.title)
+                                    title: 'Повторения', hint: 'Выбранный тип'),
+                                RoundedMaterialButton(
+                                    borderRadius: BorderRadius.circular(8),
+                                    child: Container(
+                                      height: 33 * 1.2,
+                                      decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.15),
+                                          borderRadius:
+                                              BorderRadius.circular(8)),
+                                      child: Container(
+                                        alignment: Alignment.center,
+                                        margin: const EdgeInsets.only(
+                                            left: 12, right: 18),
+                                        child: Text(state.title,
+                                            style: const TextStyle(
+                                                fontSize: 14,
+                                                fontFamily: 'Arial',
+                                                color: Colors.white)),
+                                      ),
+                                    ))
                               ],
-                            )
+                            ),
+                            const ContentDivider(
+                                margin: EdgeInsets.only(top: 10, bottom: 10)),
+                            CustomTextButton(
+                                text: 'Настроить повторения',
+                                onTap: () {
+                                  Poseidon.instance.navigate(
+                                      '/edit-transaction/update-repeat-pettern',
+                                      arguments: UpdateRepeatPatternArguments(
+                                          state.pattern, state.onSave));
+                                },
+                                margin:
+                                    const EdgeInsets.only(top: 15, bottom: 15)),
                           ],
                         ),
                         crossFadeState: state.isRepeatEnabled

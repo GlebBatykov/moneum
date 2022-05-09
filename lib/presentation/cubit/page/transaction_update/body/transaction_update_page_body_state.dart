@@ -8,7 +8,7 @@ class TransactionUpdatePageBodyInitial extends TransactionUpdatePageBodyState {}
 class TransactionUpdatePageBodyShow extends TransactionUpdatePageBodyState {
   final TransactionUpdateCategoryFieldCubit categoryFieldCubit;
 
-  final TransactionUpdateDateFieldCubit dateFieldCubit;
+  final UpdateDateFieldCubit dateFieldCubit;
 
   final TransactionUpdateRepeatFieldCubit repeatFieldCubit;
 

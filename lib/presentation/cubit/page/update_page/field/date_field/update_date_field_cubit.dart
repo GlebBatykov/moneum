@@ -2,17 +2,16 @@ import 'package:bloc/bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
 
-part 'transaction_update_date_field_state.dart';
+part 'update_date_field_state.dart';
 
-class TransactionUpdateDateFieldCubit
-    extends Cubit<TransactionUpdateDateFieldState> {
+class UpdateDateFieldCubit extends Cubit<UpdateDateFieldState> {
   DateTime _dateTime;
 
   late String _title;
 
-  TransactionUpdateDateFieldCubit({DateTime? dateTime})
+  UpdateDateFieldCubit({DateTime? dateTime})
       : _dateTime = dateTime ?? DateTime.now(),
-        super(TransactionUpdateDateFieldInitial()) {
+        super(UpdateDateFieldInitial()) {
     _initialize();
   }
 
@@ -42,6 +41,6 @@ class TransactionUpdateDateFieldCubit
   }
 
   void _show() {
-    emit(TransactionUpdateDateFieldShow(_title));
+    emit(UpdateDateFieldShow(_title));
   }
 }

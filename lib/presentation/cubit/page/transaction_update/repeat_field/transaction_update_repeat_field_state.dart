@@ -8,13 +8,14 @@ class TransactionUpdateRepeatFieldInitial
 
 class TransactionUpdateRepeatFieldShow
     extends TransactionUpdateRepeatFieldState {
+  final RepeatPattern pattern;
+
   final bool isRepeatEnabled;
 
   final String title;
 
-  final SelectDialogListCubit<TransactionUpdateRepeatFieldSelectDialogItemData>
-      selectDialogCubit;
+  final void Function(RepeatPattern) onSave;
 
   TransactionUpdateRepeatFieldShow(
-      this.isRepeatEnabled, this.title, this.selectDialogCubit);
+      this.pattern, this.isRepeatEnabled, this.title, this.onSave);
 }

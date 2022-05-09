@@ -25,37 +25,34 @@ class TitleBar extends StatelessWidget {
           return Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                  width: constraints.maxWidth * 0.5,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                      padding: const EdgeInsets.only(left: 5, right: 15),
+                      child: MaterialIcon(
+                        assetName: 'assets/images/icons/arrow-back.svg',
+                        width: 16,
+                        heigth: 12,
+                        color: Colors.white,
+                        onPressed: () {
+                          Poseidon.instance.pop();
+                        },
+                      )),
+                  Text(title,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Arial',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18 * 1.15))
+                ],
+              ),
+              Expanded(
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Padding(
-                          padding: const EdgeInsets.only(left: 5, right: 15),
-                          child: MaterialIcon(
-                            assetName: 'assets/images/icons/arrow-back.svg',
-                            width: 16,
-                            heigth: 12,
-                            color: Colors.white,
-                            onPressed: () {
-                              Poseidon.instance.pop();
-                            },
-                          )),
-                      Text(title,
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'Arial',
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18 * 1.15))
-                    ],
-                  )),
-              SizedBox(
-                  width: constraints.maxWidth * 0.5,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: const [],
-                  ))
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: const [],
+              ))
             ],
           );
         }),

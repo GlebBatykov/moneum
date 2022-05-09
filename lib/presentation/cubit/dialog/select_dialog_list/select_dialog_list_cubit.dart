@@ -33,7 +33,7 @@ class SelectDialogListCubit<T extends SelectDialogListItemData>
       SelectDialogItemTitleBuilderCallback<T>? titleBuilder,
       int selected = 0,
       SelectDialogCubitBottomButtonType bottomButtonType =
-          SelectDialogCubitBottomButtonType.add})
+          SelectDialogCubitBottomButtonType.cancel})
       : _title = title,
         _itemData = itemData,
         _onSelect = onSelect,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../cubit/page/transaction_update/date_field/transaction_update_date_field_cubit.dart';
+import '../../../../cubit/page/update_page/field/date_field/update_date_field_cubit.dart';
 import '../../../update_field_title.dart';
 
 class TransactionUpdateDateField extends StatelessWidget {
@@ -9,13 +9,12 @@ class TransactionUpdateDateField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var updateDateFieldCubit = context.watch<TransactionUpdateDateFieldCubit>();
+    var updateDateFieldCubit = context.watch<UpdateDateFieldCubit>();
 
-    return BlocBuilder<TransactionUpdateDateFieldCubit,
-            TransactionUpdateDateFieldState>(
+    return BlocBuilder<UpdateDateFieldCubit, UpdateDateFieldState>(
         bloc: updateDateFieldCubit,
         builder: (context, state) {
-          if (state is TransactionUpdateDateFieldShow) {
+          if (state is UpdateDateFieldShow) {
             return Container(
               margin: const EdgeInsets.only(top: 6, bottom: 6),
               child: Row(

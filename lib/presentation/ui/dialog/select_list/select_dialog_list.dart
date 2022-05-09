@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:moneum/presentation/ui/button/custom_text_button.dart';
 import 'package:moneum/presentation/ui/content_divider.dart';
 import 'package:moneum/presentation/ui/dialog/select_list/select_dialog_list_item.dart';
+import 'package:poseidon/poseidon.dart';
 
 import '../../../cubit/dialog/select_dialog_list/select_dialog_list_cubit.dart';
 import '../../../cubit/dialog/select_dialog_list/item/select_dialog_list_item_cubit.dart';
@@ -55,18 +57,20 @@ class SelectDialogList extends StatelessWidget {
                         ? Container(
                             height: 45,
                             alignment: Alignment.center,
-                            child: TextButton(
-                                onPressed: () {},
-                                child: const Text('Добавить',
-                                    style: TextStyle(color: Colors.white))),
+                            child: CustomTextButton(
+                                text: 'Добавить',
+                                onTap: () {},
+                                color: Colors.white),
                           )
                         : Container(
                             height: 45,
                             alignment: Alignment.center,
-                            child: TextButton(
-                                onPressed: () {},
-                                child: const Text('Отмена',
-                                    style: TextStyle(color: Colors.white))),
+                            child: CustomTextButton(
+                                text: 'Отмена',
+                                onTap: () {
+                                  Poseidon.instance.pop();
+                                },
+                                color: Colors.white),
                           )
                   ],
                 );
