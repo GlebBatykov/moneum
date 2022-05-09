@@ -58,8 +58,8 @@ class SearchBar extends StatelessWidget {
                           width: 15,
                           heigth: 15,
                           color: state.isFilterVisible
-                              ? HexColor('#3D3E41')
-                              : HexColor('#A4A4A4'),
+                              ? HexColor('#A4A4A4')
+                              : HexColor('#3D3E41'),
                           onPressed: () {
                             searchBarCubit.changeFilterVisible();
                           })
