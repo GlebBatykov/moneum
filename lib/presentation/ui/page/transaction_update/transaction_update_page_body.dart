@@ -7,7 +7,7 @@ import '../../content_divider.dart';
 import '../update/update_page_body.dart';
 import 'field/transaction_update_category_field.dart';
 import 'field/transaction_update_comment_field.dart';
-import '../update/field/transaction_update_date_field.dart';
+import '../update/field/update_date_field.dart';
 import 'field/transaction_update_repeat_field.dart';
 import 'field/transaction_update_score_field.dart';
 import 'field/transaction_update_sum_field.dart';
@@ -21,9 +21,11 @@ class TransactionUpdatePageBody extends StatelessWidget {
         TransactionUpdatePageBodyState>(builder: (context, state) {
       if (state is TransactionUpdatePageBodyShow) {
         return UpdatePageBody(children: [
-          BlocProvider.value(
-              value: state.dateFieldCubit,
-              child: const TransactionUpdateDateField()),
+          Padding(
+            padding: const EdgeInsets.only(top: 15),
+            child: BlocProvider.value(
+                value: state.dateFieldCubit, child: const UpdateDateField()),
+          ),
           const ContentDivider(margin: EdgeInsets.only(top: 10, bottom: 10)),
           BlocProvider.value(
               value: state.scoreFieldCubit,

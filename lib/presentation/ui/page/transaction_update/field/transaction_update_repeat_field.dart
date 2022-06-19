@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:moneum/presentation/navigation/update_repeat_pattern_arguments.dart';
 import 'package:moneum/presentation/ui/button/custom_text_button.dart';
-import 'package:moneum/presentation/ui/button/select_button.dart';
 import 'package:poseidon/poseidon.dart';
 
 import '../../../../cubit/page/transaction_update/repeat_field/transaction_update_repeat_field_cubit.dart';
 import '../../../button/switch_button.dart';
 import '../../../content_divider.dart';
-import '../../../dialog/select_list/select_dialog_list.dart';
 import '../../../rounded_material_button.dart';
 import '../../../update_field_title.dart';
 

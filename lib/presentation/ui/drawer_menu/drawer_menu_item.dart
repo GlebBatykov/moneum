@@ -37,7 +37,7 @@ class DrawerMenuItem extends StatelessWidget {
                           ? FontWeight.normal
                           : FontWeight.bold,
                       fontFamily: 'Arial',
-                      fontSize: 13)),
+                      fontSize: 15)),
             ),
           );
         });

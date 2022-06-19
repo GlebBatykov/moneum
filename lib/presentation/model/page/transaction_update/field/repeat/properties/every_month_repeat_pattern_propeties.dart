@@ -1,4 +1,4 @@
-import '../period/period.dart';
+import '../period/pattern/period_pattern.dart';
 
 class EveryMonthRepeatPatternProperties {
   final int dayFrequency;
@@ -7,8 +7,8 @@ class EveryMonthRepeatPatternProperties {
 
   final DateTime startDate;
 
-  final Period period;
+  final PeriodPattern periodPattern;
 
-  EveryMonthRepeatPatternProperties(
-      this.dayFrequency, this.monthFrequency, this.startDate, this.period);
+  EveryMonthRepeatPatternProperties(this.dayFrequency, this.monthFrequency,
+      this.startDate, this.periodPattern);
 }

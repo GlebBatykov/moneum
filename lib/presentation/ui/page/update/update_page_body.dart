@@ -8,7 +8,7 @@ class UpdatePageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 30, right: 30, bottom: 30, top: 15),
+      margin: const EdgeInsets.only(left: 30, right: 30, bottom: 30),
       child: NotificationListener<OverscrollIndicatorNotification>(
         onNotification: (notification) {
           notification.disallowIndicator();

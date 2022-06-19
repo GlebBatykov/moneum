@@ -7,4 +7,9 @@ class EveryWeekRepeatPatternUpdateTypePropertiesInitial
     extends EveryWeekRepeatPatternUpdateTypePropertiesState {}
 
 class EveryWeekRepeatPatternUpdateTypePropertiesShow
-    extends EveryWeekRepeatPatternUpdateTypePropertiesState {}
+    extends EveryWeekRepeatPatternUpdateTypePropertiesState {
+  final TextEditingController weekFrequencyEditingController;
+
+  EveryWeekRepeatPatternUpdateTypePropertiesShow(
+      this.weekFrequencyEditingController);
+}

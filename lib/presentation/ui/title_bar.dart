@@ -51,7 +51,7 @@ class TitleBar extends StatelessWidget {
               Expanded(
                   child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: const [],
+                children: rightActions ?? [],
               ))
             ],
           );

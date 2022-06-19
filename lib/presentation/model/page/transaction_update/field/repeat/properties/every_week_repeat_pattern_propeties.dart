@@ -1,12 +1,12 @@
-import '../period/period.dart';
+import '../period/pattern/period_pattern.dart';
 
 class EveryWeekRepeatPatternProperties {
   final int weekFrequency;
 
   final DateTime startDate;
 
-  final Period period;
+  final PeriodPattern periodPattern;
 
   EveryWeekRepeatPatternProperties(
-      this.weekFrequency, this.startDate, this.period);
+      this.weekFrequency, this.startDate, this.periodPattern);
 }

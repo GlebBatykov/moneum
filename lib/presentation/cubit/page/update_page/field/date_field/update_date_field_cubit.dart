@@ -5,12 +5,24 @@ import 'package:meta/meta.dart';
 part 'update_date_field_state.dart';
 
 class UpdateDateFieldCubit extends Cubit<UpdateDateFieldState> {
-  DateTime _dateTime;
+  final String _fieldTitle;
+
+  late DateTime _dateTime;
 
   late String _title;
 
-  UpdateDateFieldCubit({DateTime? dateTime})
-      : _dateTime = dateTime ?? DateTime.now(),
+  DateTime get value => _dateTime;
+
+  UpdateDateFieldCubit.add(String fieldTitle)
+      : _fieldTitle = fieldTitle,
+        _dateTime = DateTime.now(),
+        super(UpdateDateFieldInitial()) {
+    _initialize();
+  }
+
+  UpdateDateFieldCubit.update(String fieldTitle, DateTime dateTime)
+      : _fieldTitle = fieldTitle,
+        _dateTime = dateTime,
         super(UpdateDateFieldInitial()) {
     _initialize();
   }
@@ -41,6 +53,6 @@ class UpdateDateFieldCubit extends Cubit<UpdateDateFieldState> {
   }
 
   void _show() {
-    emit(UpdateDateFieldShow(_title));
+    emit(UpdateDateFieldShow(_fieldTitle, _title));
   }
 }

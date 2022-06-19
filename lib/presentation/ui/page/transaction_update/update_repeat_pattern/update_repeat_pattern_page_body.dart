@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:moneum/presentation/cubit/page/transaction_update/repeat_field/transaction_update_repeat_field_cubit.dart';
 
-import '../../../../cubit/page/transaction_update/update_repeat_pattern/type_field/repeat_pattern_update_type_field_cubit.dart';
 import '../../../../cubit/page/transaction_update/update_repeat_pattern/update_repeat_pattern_page_cubit.dart';
+import '../../../../model/page/transaction_update/field/repeat/repeat_type.dart';
 import '../../../button/update_buttons.dart';
 import '../../../content_divider.dart';
 import '../../update/update_page_body.dart';
@@ -24,9 +23,12 @@ class UpdateRepeatPatternPageBody extends StatelessWidget {
         builder: (context, state) {
           if (state is UpdateRepeatPatternPageShow) {
             return UpdatePageBody(children: [
-              BlocProvider.value(
-                  value: state.typeFieldCubit,
-                  child: const RepeatPatternUpdateTypeField()),
+              Padding(
+                padding: const EdgeInsets.only(top: 15),
+                child: BlocProvider.value(
+                    value: state.typeFieldCubit,
+                    child: const RepeatPatternUpdateTypeField()),
+              ),
               AnimatedCrossFade(
                   firstChild: Container(),
                   secondChild: BlocProvider.value(

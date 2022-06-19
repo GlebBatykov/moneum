@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:moneum/presentation/ui/form/input_form.dart';
 
+import '../../../form/input_form.dart';
 import '../../../update_field_title.dart';
 
-class AccountUpdateBalanceField extends StatelessWidget {
+class UpdateValueField extends StatelessWidget {
+  final String title;
+
+  final String hint;
+
+  final String? hintText;
+
+  final TextAlign? textAlign;
+
   final TextEditingController editingController;
 
-  const AccountUpdateBalanceField({Key? key, required this.editingController})
+  const UpdateValueField(
+      {Key? key,
+      required this.title,
+      required this.hint,
+      required this.editingController,
+      this.textAlign,
+      this.hintText})
       : super(key: key);
 
   @override
@@ -18,13 +32,13 @@ class AccountUpdateBalanceField extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const UpdateFieldTitle(
-                title: 'Баланс', hint: 'Введите начальный баланс'),
+            UpdateFieldTitle(title: title, hint: hint),
             InputForm(
                 editingController: editingController,
                 width: 127,
                 height: 33 * 1.2,
-                hintText: '0')
+                textAlign: textAlign ?? TextAlign.left,
+                hintText: hintText)
           ],
         );
       }),

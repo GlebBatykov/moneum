@@ -36,7 +36,7 @@ class TransactionUpdatePageBodyCubit
   void _addInitialiaze() {
     _categoryFieldCubit = TransactionUpdateCategoryFieldCubit();
 
-    _dateFieldCubit = UpdateDateFieldCubit();
+    _dateFieldCubit = UpdateDateFieldCubit.add('Дата');
 
     _repeatFieldCubit = TransactionUpdateRepeatFieldCubit();
 
@@ -52,7 +52,7 @@ class TransactionUpdatePageBodyCubit
   void _updateInitialize() {
     _categoryFieldCubit = TransactionUpdateCategoryFieldCubit();
 
-    _dateFieldCubit = UpdateDateFieldCubit();
+    _dateFieldCubit = UpdateDateFieldCubit.add('Дата');
 
     _repeatFieldCubit = TransactionUpdateRepeatFieldCubit();
 

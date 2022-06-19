@@ -1,6 +1,6 @@
-import '../../../../../cubit/page/transaction_update/update_repeat_pattern/type_field/repeat_pattern_update_type_field_cubit.dart';
-import 'period/period.dart';
+import 'period/pattern/period_pattern.dart';
 import 'repeat_pattern.dart';
+import 'repeat_type.dart';
 
 class EveryMonthRepeatPattern extends RepeatPattern {
   final int dayFrequency;
@@ -9,9 +9,9 @@ class EveryMonthRepeatPattern extends RepeatPattern {
 
   final DateTime startDate;
 
-  final Period period;
+  final PeriodPattern periodPattern;
 
-  EveryMonthRepeatPattern(
-      this.dayFrequency, this.monthFrequency, this.startDate, this.period)
+  EveryMonthRepeatPattern(this.dayFrequency, this.monthFrequency,
+      this.startDate, this.periodPattern)
       : super(RepeatType.everyMonth);
 }

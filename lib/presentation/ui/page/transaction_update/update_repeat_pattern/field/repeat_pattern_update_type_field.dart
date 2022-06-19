@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:poseidon/poseidon.dart';
 
-import '../../../../../cubit/page/transaction_update/update_repeat_pattern/type_field/repeat_pattern_update_type_field_cubit.dart';
+import '../../../../../cubit/page/transaction_update/update_repeat_pattern/field/repeat_pattern_update_type_field_cubit.dart';
 import '../../../../button/select_button.dart';
 import '../../../../dialog/select_list/select_dialog_list.dart';
 import '../../../../update_field_title.dart';

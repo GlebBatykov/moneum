@@ -6,9 +6,10 @@ import '../../../../model/page/transaction_update/field/repeat/every_day_repeat_
 import '../../../../model/page/transaction_update/field/repeat/every_month_repeat_pattern.dart';
 import '../../../../model/page/transaction_update/field/repeat/every_week_repeat_pattern.dart';
 import '../../../../model/page/transaction_update/field/repeat/repeat_pattern.dart';
+import '../../../../model/page/transaction_update/field/repeat/repeat_type.dart';
 import '../../../../model/page/transaction_update/field/repeat/without_repeat_pattern.dart';
-import 'type_field/repeat_pattern_update_type_field_cubit.dart';
-import 'type_field/type_properties/repeat_pattern_update_type_properties_cubit.dart';
+import 'field/repeat_pattern_update_type_field_cubit.dart';
+import 'field/type_properties/repeat_pattern_update_type_properties_cubit.dart';
 
 part 'update_repeat_pattern_page_state.dart';
 
@@ -31,7 +32,7 @@ class UpdateRepeatPatternPageCubit extends Cubit<UpdateRepeatPatternPageState> {
 
     _typeFieldCubit = RepeatPatternUpdateTypeFieldCubit(type);
 
-    _typePropertiesCubit = RepeatPatternUpdateTypePropertiesCubit(type);
+    _typePropertiesCubit = RepeatPatternUpdateTypePropertiesCubit(pattern);
 
     _typeFieldCubit.typeChanges.listen(_handleTypeChange);
 
@@ -50,20 +51,23 @@ class UpdateRepeatPatternPageCubit extends Cubit<UpdateRepeatPatternPageState> {
     switch (_typeFieldCubit.type) {
       case RepeatType.everyDay:
         var properties = _typePropertiesCubit.getEveryDayPatternProperties();
-        pattern = EveryDayRepeatPattern(
-            properties.dayFrequency, properties.startDate, properties.period);
+        pattern = EveryDayRepeatPattern(properties.dayFrequency,
+            properties.startDate, properties.periodPattern);
 
         break;
       case RepeatType.everyWeek:
         var properties = _typePropertiesCubit.getEveryWeekProperties();
-        pattern = EveryWeekRepeatPattern(
-            properties.weekFrequency, properties.startDate, properties.period);
+        pattern = EveryWeekRepeatPattern(properties.weekFrequency,
+            properties.startDate, properties.periodPattern);
 
         break;
       case RepeatType.everyMonth:
         var properties = _typePropertiesCubit.getEveryMonthProperties();
-        pattern = EveryMonthRepeatPattern(properties.dayFrequency,
-            properties.monthFrequency, properties.startDate, properties.period);
+        pattern = EveryMonthRepeatPattern(
+            properties.dayFrequency,
+            properties.monthFrequency,
+            properties.startDate,
+            properties.periodPattern);
 
         break;
       case RepeatType.withoutRepeat:

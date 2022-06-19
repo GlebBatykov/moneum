@@ -1,14 +1,14 @@
-import '../../../../../cubit/page/transaction_update/update_repeat_pattern/type_field/repeat_pattern_update_type_field_cubit.dart';
-import 'period/period.dart';
+import 'period/pattern/period_pattern.dart';
 import 'repeat_pattern.dart';
+import 'repeat_type.dart';
 
 class EveryWeekRepeatPattern extends RepeatPattern {
   final int weekFrequency;
 
   final DateTime startDate;
 
-  final Period period;
+  final PeriodPattern periodPattern;
 
-  EveryWeekRepeatPattern(this.weekFrequency, this.startDate, this.period)
+  EveryWeekRepeatPattern(this.weekFrequency, this.startDate, this.periodPattern)
       : super(RepeatType.everyWeek);
 }

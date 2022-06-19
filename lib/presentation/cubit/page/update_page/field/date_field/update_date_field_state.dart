@@ -6,7 +6,9 @@ abstract class UpdateDateFieldState {}
 class UpdateDateFieldInitial extends UpdateDateFieldState {}
 
 class UpdateDateFieldShow extends UpdateDateFieldState {
+  final String fieldTitle;
+
   final String title;
 
-  UpdateDateFieldShow(this.title);
+  UpdateDateFieldShow(this.fieldTitle, this.title);
 }

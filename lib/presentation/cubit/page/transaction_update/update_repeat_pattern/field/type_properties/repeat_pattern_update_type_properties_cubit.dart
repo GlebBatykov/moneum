@@ -1,10 +1,14 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
+import '../../../../../../model/page/transaction_update/field/repeat/every_day_repeat_pattern.dart';
+import '../../../../../../model/page/transaction_update/field/repeat/every_month_repeat_pattern.dart';
+import '../../../../../../model/page/transaction_update/field/repeat/every_week_repeat_pattern.dart';
 import '../../../../../../model/page/transaction_update/field/repeat/properties/every_day_repeat_pattern_propeties.dart';
 import '../../../../../../model/page/transaction_update/field/repeat/properties/every_month_repeat_pattern_propeties.dart';
 import '../../../../../../model/page/transaction_update/field/repeat/properties/every_week_repeat_pattern_propeties.dart';
-import '../repeat_pattern_update_type_field_cubit.dart';
+import '../../../../../../model/page/transaction_update/field/repeat/repeat_pattern.dart';
+import '../../../../../../model/page/transaction_update/field/repeat/repeat_type.dart';
 import 'every_day/every_day_repeat_pattern_update_type_properties_cubit.dart';
 import 'every_month/every_week_repeat_pattern_update_type_properties_cubit.dart';
 import 'every_week/every_month_repeat_pattern_update_type_properties_cubit.dart';
@@ -22,21 +26,37 @@ class RepeatPatternUpdateTypePropertiesCubit
   late final EveryMonthRepeatPatternUpdateTypePropertiesCubit
       _everyMonthPropertiesCubit;
 
-  RepeatPatternUpdateTypePropertiesCubit(RepeatType type)
+  RepeatPatternUpdateTypePropertiesCubit(RepeatPattern pattern)
       : super(RepeatPatternUpdateTypePropertiesInitial()) {
-    _initialize(type);
+    _initialize(pattern);
   }
 
-  void _initialize(RepeatType type) {
-    _everyDayPropertiesCubit = EveryDayRepeatPatternUpdateTypePropertiesCubit();
+  void _initialize(RepeatPattern pattern) {
+    if (pattern is EveryDayRepeatPattern) {
+      _everyDayPropertiesCubit =
+          EveryDayRepeatPatternUpdateTypePropertiesCubit.update(pattern);
+    } else {
+      _everyDayPropertiesCubit =
+          EveryDayRepeatPatternUpdateTypePropertiesCubit.add();
+    }
 
-    _everyWeekPropertiesCubit =
-        EveryWeekRepeatPatternUpdateTypePropertiesCubit();
+    if (pattern is EveryWeekRepeatPattern) {
+      _everyWeekPropertiesCubit =
+          EveryWeekRepeatPatternUpdateTypePropertiesCubit.update(pattern);
+    } else {
+      _everyWeekPropertiesCubit =
+          EveryWeekRepeatPatternUpdateTypePropertiesCubit.add();
+    }
 
-    _everyMonthPropertiesCubit =
-        EveryMonthRepeatPatternUpdateTypePropertiesCubit();
+    if (pattern is EveryMonthRepeatPattern) {
+      _everyMonthPropertiesCubit =
+          EveryMonthRepeatPatternUpdateTypePropertiesCubit.update(pattern);
+    } else {
+      _everyMonthPropertiesCubit =
+          EveryMonthRepeatPatternUpdateTypePropertiesCubit.add();
+    }
 
-    _show(type);
+    _show(pattern.type);
   }
 
   EveryDayRepeatPatternProperties getEveryDayPatternProperties() {
