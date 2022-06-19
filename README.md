@@ -1,6 +1,6 @@
 <div align="center">
 
-<font size="5"> The application is not finished. UI only. </font>
+The application is not finished. UI only.
 
 </div>
 
